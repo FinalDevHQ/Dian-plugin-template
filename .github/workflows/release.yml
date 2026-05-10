@@ -37,12 +37,17 @@ jobs:
         working-directory: dian
         run: npm ci
 
-      # 4. 打包插件
+      # 4. 构建 packages（plugin-runtime 等本地依赖需要先编译出 dist）
+      - name: Build packages
+        working-directory: dian
+        run: npm run build -w packages
+
+      # 5. 打包插件
       - name: Pack plugin
         working-directory: dian/plugin-template
         run: npm run pack
 
-      # 5. 读取 zip 文件名（来自 package.json name 字段）
+      # 6. 读取 zip 文件名（来自 package.json name 字段）
       - name: Resolve zip filename
         id: meta
         working-directory: dian/plugin-template
@@ -50,7 +55,7 @@ jobs:
           NAME=$(node -p "JSON.parse(require('fs').readFileSync('package.json','utf8')).name")
           echo "zip=${NAME}.zip" >> "$GITHUB_OUTPUT"
 
-      # 6. 创建 GitHub Release 并上传 zip
+      # 7. 创建 GitHub Release 并上传 zip
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:

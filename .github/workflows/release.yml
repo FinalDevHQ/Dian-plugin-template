@@ -18,7 +18,6 @@ jobs:
         with:
           repository: FinalDevHQ/Dian
           path: dian
-          token: ${{ secrets.GH_PAT }}
 
       # 2. 用本仓库内容覆盖 monorepo 里的 plugin-template 子目录
       - name: Checkout plugin-template

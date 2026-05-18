@@ -7,6 +7,7 @@
     "build": "tsup && vite build --config ui/vite.config.ts",
     "dev:plugin": "tsup --watch",
     "dev:ui": "vite --config ui/vite.config.ts",
+    "dev:sync": "node scripts/dev-sync.mjs",
     "pack": "npm run build && node scripts/pack.mjs"
   },
   "devDependencies": {
@@ -22,6 +23,7 @@
     "tailwindcss": "^4.3.0",
     "tsup": "^8.5.0",
     "typescript": "^6.0.2",
-    "vite": "^8.0.10"
+    "vite": "^8.0.10",
+    "ws": "^8.18.2"
   }
 }

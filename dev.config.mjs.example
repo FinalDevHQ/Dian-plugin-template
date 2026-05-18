@@ -1,0 +1,15 @@
+/**
+ * 远程开发同步配置
+ * 复制为 dev.config.mjs 即可生效
+ *
+ * 也可以通过环境变量覆盖：
+ *   DIAN_DEV_WS_URL=ws://127.0.0.1:3901
+ *   DIAN_DEV_TOKEN=your-token
+ */
+export default {
+  wsUrl: "ws://127.0.0.1:3901",
+  token: "your-token-here",    // 在 Dian Web UI → dian-dev-sync 插件 → 配置里查看
+  pluginName: "my-plugin",     // 必须与 @Plugin({ name: "..." }) 一致
+  distDir: "dist",
+  debounceMs: 300,
+};
